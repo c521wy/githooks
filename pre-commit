@@ -10,4 +10,4 @@ for prevent_branch in "${prevent_branchs[@]}"; do
 	fi
 done
 
-exit 1
+exit 0
