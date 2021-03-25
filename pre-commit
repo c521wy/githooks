@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# 禁止在分支上直接提交代码
+prevent_branchs=("develop" "test" "master")
+current_branch=$(git symbolic-ref --short -q HEAD)
+for prevent_branch in "${prevent_branchs[@]}"; do
+	if [[ "${current_branch}" = "${prevent_branch}" ]]; then
+		echo "Error: 不允许在${current_branch}分支直接提交代码"
+		exit 1
+	fi
+done
+
+exit 1
